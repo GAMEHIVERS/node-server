@@ -3,24 +3,24 @@ import mongoose, { ConnectOptions } from 'mongoose';
 require("dotenv").config()
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Middleware
 app.use(express.json());
 
 // MongoDB Connection
 mongoose
-  .connect(process.env.URLDBMONGO || "http://localhost:8000", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    autoIndex: true,
-  } as ConnectOptions)
-  .then((db) => {
-    console.log("Database Connected Successfuly.");
-  })
-  .catch((err) => {
-    console.log("Error Connectiong to the Database");
-  });
+    .connect(process.env.URLDBMONGO || "http://localhost:8000", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        autoIndex: true,
+    } as ConnectOptions)
+    .then((db) => {
+        console.log("Database Connected Successfuly.");
+    })
+    .catch((err) => {
+        console.log("Error Connectiong to the Database");
+    });
 
 // Define a MongoDB schema and model (adjust to your data structure)
 const DataSchema = new mongoose.Schema({
