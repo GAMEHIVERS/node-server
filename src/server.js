@@ -1,5 +1,5 @@
-import express, { Request, Response } from 'express';
-import mongoose, { ConnectOptions } from 'mongoose';
+const express = require('express');
+const mongoose = require('mongoose');
 require("dotenv").config()
 
 const app = express();
