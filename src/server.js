@@ -14,7 +14,7 @@ mongoose
         useNewUrlParser: true,
         useUnifiedTopology: true,
         autoIndex: true,
-    } as ConnectOptions)
+    })
     .then((db) => {
         console.log("Database Connected Successfuly.");
     })
@@ -47,7 +47,7 @@ const DataSchema = new mongoose.Schema({
 const DataModel = mongoose.model('Data', DataSchema);
 
 // API route for handling POST requests
-app.post('/api/collect-data', async (req: Request, res: Response) => {
+app.post('/api/collect-data', async (req, res) => {
     try {
         const {
             email,
