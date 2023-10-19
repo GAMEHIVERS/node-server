@@ -8,6 +8,13 @@ const PORT = process.env.PORT || 8080;
 // Middleware
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Replace '*' with your specific domains for more security.
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+  });
+
 // MongoDB Connection
 mongoose
     .connect(process.env.URLDBMONGO || "http://localhost:8000", {
