@@ -105,6 +105,10 @@ app.post('/api/collect-data', async (req, res) => {
     }
 });
 
+app.get("/", (req, res) => {
+    res.status(200).json({"success": "Server is alive and kicking"})
+})
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
