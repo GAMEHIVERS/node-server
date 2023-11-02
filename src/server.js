@@ -13,7 +13,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
-  });
+});
 
 // MongoDB Connection
 mongoose
@@ -53,6 +53,39 @@ const DataSchema = new mongoose.Schema({
 
 const DataModel = mongoose.model('Data', DataSchema);
 
+const checkNul = ({ email,
+    fullname,
+    teamformation,
+    numofTeamMembers,
+    role,
+    nationality,
+    workingidea,
+    studioquestion,
+    alreadystudioanswer,
+    describeyou,
+    teamoption,
+    jobschedule,
+    shareanything,
+    uploadvideo,
+    jamattendance, }) => {
+
+    if (fullname ||
+        teamformationn ||
+        numofTeamMembers ||
+        rolen ||
+        nationalityn ||
+        workingidean ||
+        studioquestionn ||
+        alreadystudioanswern ||
+        describeyoun ||
+        teamoptionn ||
+        jobschedulen ||
+        shareanythingn ||
+        uploadvideon ||
+        jamattendance) throw new Error("Some fields are empty, fill them up to register!")
+
+}
+
 // API route for handling POST requests
 app.post('/api/collect-data', async (req, res) => {
     try {
@@ -76,6 +109,30 @@ app.post('/api/collect-data', async (req, res) => {
             CreatedAt,
 
         } = req.body;
+
+        checkNul({
+            email,
+            fullname,
+            teamformation,
+            numofTeamMembers,
+            role,
+            nationality,
+            workingidea,
+            studioquestion,
+            alreadystudioanswer,
+            describeyou,
+            teamoption,
+            jobschedule,
+            shareanything,
+            uploadvideo,
+            jamattendance
+        });
+
+        const User = mongoose.model('User', userSchema);
+
+        const findResult = await  DataModel.find({email: email})
+
+        if(findResult) throw new Error("Email has been Registered, you will receive an email shortly!")
 
         const newData = new DataModel({
             email,
@@ -101,12 +158,12 @@ app.post('/api/collect-data', async (req, res) => {
         res.json({ success: true, data: 'success' });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, data: 'An error occurred' });
+        res.status(500).json({ success: false, data: error.message || "An Error Occured" });
     }
 });
 
 app.get("/", (req, res) => {
-    res.status(200).json({"success": "Server is alive and kicking"})
+    res.status(200).json({ "success": "Server is alive and kicking" })
 })
 
 // Start the server
