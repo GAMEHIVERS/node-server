@@ -76,7 +76,6 @@ const checkNul = ({ email,
         nationality == '' ||
         workingidea == '' ||
         studioquestion == '' ||
-        alreadystudioanswer == '' ||
         describeyou == '' ||
         teamoption == '' ||
         jobschedule == '' ||
