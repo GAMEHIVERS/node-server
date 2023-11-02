@@ -109,6 +109,7 @@ app.post('/api/collect-data', async (req, res) => {
             CreatedAt,
 
         } = req.body;
+        console.log(req.body,"HULI")
 
         checkNul({
             email,
