@@ -129,6 +129,7 @@ app.post('/api/collect-data', async (req, res) => {
 
 
         const findResult = await  DataModel.find({email: email})
+        console.log(findResult, "WIll")
 
         if(findResult) throw new Error("Email has been Registered, you will receive an email shortly!")
 
