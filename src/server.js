@@ -127,7 +127,6 @@ app.post('/api/collect-data', async (req, res) => {
             jamattendance
         });
 
-        const User = mongoose.model('User', userSchema);
 
         const findResult = await  DataModel.find({email: email})
 
