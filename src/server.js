@@ -70,18 +70,18 @@ const checkNul = ({ email,
     jamattendance, }) => {
 
     if (!fullname ||
-        !teamformationn ||
+        !teamformation ||
         !numofTeamMembers ||
         !role ||
-        !nationalityn ||
-        !workingidean ||
-        !studioquestionn ||
-        !alreadystudioanswern ||
-        !describeyoun ||
-        !teamoptionn ||
-        !jobschedulen ||
-        !shareanythingn ||
-        !uploadvideon ||
+        !nationality ||
+        !workingidea ||
+        !studioquestion ||
+        !alreadystudioanswer ||
+        !describeyou ||
+        !teamoption ||
+        !jobschedule ||
+        !shareanything ||
+        !uploadvideo ||
         !jamattendance) throw new Error("Some fields are empty, fill them up to register!")
 
 }
