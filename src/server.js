@@ -122,7 +122,6 @@ app.post('/api/collect-data', async (req, res) => {
             studioquestion,
             alreadystudioanswer,
             describeyou,
-            teamoption,
             jobschedule,
             shareanything,
             uploadvideo,
