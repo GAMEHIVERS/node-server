@@ -69,20 +69,20 @@ const checkNul = ({ email,
     uploadvideo,
     jamattendance, }) => {
 
-    if (!fullname ||
-        !teamformation ||
-        !numofTeamMembers ||
-        !role ||
-        !nationality ||
-        !workingidea ||
-        !studioquestion ||
-        !alreadystudioanswer ||
-        !describeyou ||
-        !teamoption ||
-        !jobschedule ||
-        !shareanything ||
-        !uploadvideo ||
-        !jamattendance) throw new Error("Some fields are empty, fill them up to register!")
+    if (fullname == '' ||
+        teamformation == '' ||
+        numofTeamMembers == '' ||
+        role == '' ||
+        nationality == '' ||
+        workingidea == '' ||
+        studioquestion == '' ||
+        alreadystudioanswer == '' ||
+        describeyou == '' ||
+        teamoption == '' ||
+        jobschedule == '' ||
+        shareanything == '' ||
+        uploadvideo == '' ||
+        jamattendance == '') throw new Error("Some fields are empty, fill them up to register!")
 
 }
 
